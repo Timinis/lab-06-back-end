@@ -29,5 +29,8 @@ javascript, node.js, npm, google api, heroku, github, postman
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
+181000TSEP18 - Tim Li creates scaffold
+181030TSEP18 - Nate Vail git clones scaffold and begins driving, Tim navigating.
+
 -->
 Nathan Vail
