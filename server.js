@@ -14,5 +14,18 @@ require('dotenv').config();
 const PORT = 3000;
 
 app.get('/location', (request, response) => {
-  console.log(request.query);
-})
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${
+    request.query.data
+  }&key=${process.env.GOOGLE_API_KEY}`;
+  return superagent.get(url).then(result => {
+    const locationResult = {
+      search_query: request.query.data,
+      formatted_query: result.body.results[0].formatted_address,
+      latitude: result.body.result[0].geometry.location.lat,
+      longtitude: result.body.result[0].geometry.location.lng
+    };
+    response.send(locationResult);
+  });
+});
+
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
